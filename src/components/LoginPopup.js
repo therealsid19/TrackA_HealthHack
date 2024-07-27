@@ -1,41 +1,24 @@
-import React, { useState } from 'react';
-import './style.css'; // Ensure styles are included
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const LoginPopup = ({ onClose }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Handle login logic here
-    console.log('Logging in with', email, password);
-    onClose(); // Close the popup after login
+    // Redirect to user page on successful login
+    navigate('/user');
   };
 
   return (
     <div className='login-popup-overlay'>
       <div className='login-popup'>
-        <button className='login-popup-close' onClick={onClose}>✖</button>
-        <h2 className='login-heading'>Login</h2> 
-        <form className='login-form'>
-          <input
-            type='email'
-            placeholder='Email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type='password'
-            placeholder='Password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type='button' className='login-button' onClick={handleLogin}>Login</button>
+        <button className='login-popup-close' onClick={onClose}>×</button>
+        <h2 className='login-heading'>Login</h2>
+        <form className='login-form' onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+          <input type='text' placeholder='Username' required />
+          <input type='password' placeholder='Password' required />
+          <button type='submit' className='login-button'>Login</button>
         </form>
-        <div className='login-social'>
-          <button className='google-button'>Sign in with Google</button>
-        </div>
       </div>
     </div>
   );
