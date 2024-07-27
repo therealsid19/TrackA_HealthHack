@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+@layer base {
+  body {
+    @apply font-[Poppins]
+  }
+
+  li{
+    @apply hover:text-indigo-500 
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl font-bold
+  }
+
+  h2 {
+    @apply text-xl md:text-3xl font-bold 
+  }
+
+  .icon ,li {
+    @apply cursor-pointer
+  }
+  
+ 
+}
+
