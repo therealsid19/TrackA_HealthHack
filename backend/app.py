@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify, send_from_directory
 import os
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import Border, Side
-from openpyxl.styles import Alignment
+from openpyxl.styles import Border, Side, Alignment
 from datetime import datetime
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import logging
 
 app = Flask(__name__, static_folder='build', static_url_path='')
@@ -30,19 +32,19 @@ def submit_email():
     try:
         # Check if the Excel file exists; if not, create it with headers
         if not os.path.exists(excel_file_path):
-            workbook = Workbook()  # ADDED
-            sheet = workbook.active  # ADDED
-            sheet.title = "Emails"  # ADDED
+            workbook = Workbook()
+            sheet = workbook.active
+            sheet.title = "Emails"
             # Set headers
-            headers = ["Index", "Email", "Date & Time"]  # ADDED
-            sheet.append(headers)  # ADDED
+            headers = ["Index", "Email", "Date & Time"]
+            sheet.append(headers)
             # Apply border to headers
-            for col_num in range(1, len(headers) + 1):  # ADDED
-                cell = sheet.cell(row=1, column=col_num)  # ADDED
-                cell.border = thin_border  # ADDED
-                cell.alignment = Alignment(horizontal="center", vertical="center")  # ADDED
-            workbook.save(excel_file_path)  # ADDED
-            logging.debug("Created Excel file and wrote headers")  # ADDED
+            for col_num in range(1, len(headers) + 1):
+                cell = sheet.cell(row=1, column=col_num)
+                cell.border = thin_border
+                cell.alignment = Alignment(horizontal="center", vertical="center")
+            workbook.save(excel_file_path)
+            logging.debug("Created Excel file and wrote headers")
 
         # Load the workbook and select the active sheet
         workbook = load_workbook(excel_file_path)
@@ -91,6 +93,37 @@ def submit_email():
         return jsonify({'message': 'Failed to submit email'}), 500
 
     return jsonify({'message': 'Email submitted successfully'})
+
+@app.route('/send_feedback', methods=['POST'])
+def send_feedback():
+    data = request.get_json()
+    feedback_message = data.get('message')
+
+    try:
+        # Set up the server
+        server = smtplib.SMTP('smtp.gmail.com', 587) # Change this to your email provider's SMTP server
+        server.starttls()
+
+        # Login to your email account
+        server.login('medgenieai@gmail.com', 'mqtq wfjd gory yrza') # Change to your email and password
+
+        # Create the email
+        msg = MIMEMultipart()
+        msg['From'] = 'alexfarouz@gmail.com'  # Feedback email address
+        msg['To'] = 'medgenieai@gmail.com'  # Your email
+        msg['Subject'] = 'Feedback from MedGenie.ai'
+        
+        body = f"Feedback:\n\n{feedback_message}"
+        msg.attach(MIMEText(body, 'plain'))
+
+        # Send the email
+        server.send_message(msg)
+        server.quit()
+
+        return jsonify({'message': 'Feedback sent successfully!'}), 200
+    except Exception as e:
+        logging.error(f"Error sending feedback email: {e}", exc_info=True)
+        return jsonify({'message': 'Failed to send feedback.'}), 500
 
 @app.route('/')
 def serve():

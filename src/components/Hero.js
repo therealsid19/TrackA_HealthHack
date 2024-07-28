@@ -41,7 +41,7 @@ const Hero = () => {
   };
 
   return (
-    <div name='Home' className='hero-container'>
+    <div name='Home' className='hero-container flex'>
       <video className='hero-video' src={heroVid} autoPlay loop muted />
       <div className='overlay'></div>
       <div className='content'>
