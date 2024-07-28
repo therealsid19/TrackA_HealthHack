@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Testimonials from "./components/Testimonials";
 import UserPage from './UserPage/Userpage'; // Ensure the import path is correct
+import ChatBotPage from './UserPage/Chatbot/ChatBotPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             </>
           } />
           <Route path="/user" element={<UserPage />} />
+          <Route path="/chatbot" element={<ChatBotPage />} />
         </Routes>
       </div>
     </Router>

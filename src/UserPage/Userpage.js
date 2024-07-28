@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar';
-import ChatBot from './ChatBot';
+import ChatBot from './Chatbot/ChatBot';
 import Map from './Map';
 import MyCalendar from './Calendar'; // Ensure MyCalendar.js is correctly imported
 import MedicineSchedule from './MedicineSchedule'; // Ensure MedicineSchedule.js is correctly imported
@@ -20,7 +20,7 @@ const UserPage = () => {
         <UserProfile />
         </div>
         <div className='map-container'>
-            <h1> Nearest Clinic </h1>
+            <h1 className='clinic-title'> Nearest Clinic </h1>
           <Map />
         </div>
         <div className = 'reminder' style={{ display: 'flex', alignItems: 'center' }}>
