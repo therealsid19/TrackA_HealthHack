@@ -16,7 +16,7 @@ const Navbar = ({ onLoginClick }) => {
   return (
     <div className='navbar-container'>
       <div>
-        <h1 className={menu ? 'hidden' : 'logo'}>Beyond Care</h1>
+        <h1 className={menu ? 'hidden' : 'logo'}>MedGenie.ai</h1>
       </div>
 
       <div className='navbar-actions'>
@@ -34,7 +34,7 @@ const Navbar = ({ onLoginClick }) => {
 
       <div className={menu ? 'menu-open' : 'menu-closed'}>
         <ul>
-          <h1 className='logo'>Beyond Care</h1>
+          <h1 className='logo'>MedGenie.ai</h1>
           <div className='menu-buttons'>
             <button className='btn'>Search</button>
             <button className='btn'>Account</button> {/* Show login popup */}

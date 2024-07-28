@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AiFillFacebook } from 'react-icons/ai';
-import { AiFillInstagram } from 'react-icons/ai';
+import { AiFillGithub } from 'react-icons/ai';
 import { FaWhatsappSquare } from 'react-icons/fa';
 import './style.css'; // Import the CSS file
 
@@ -12,22 +12,10 @@ const Contact = () => {
   return (
     <div name='Contact' className='contact-container'>
       <div className='contact-info'>
-        <h1 className='contact-title'>Beyond Care</h1>
+        <h1 className='contact-title'>MedGenie.ai</h1>
         <p className='contact-description'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis in laboriosam perferendis nulla nisi vitae distinctio non eum. Id ratione voluptatibus amet expedita temporibus nulla tenetur vel obcaecati iure.
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis in laboriosam perferendis nulla nisi vitae distinctio non eum. Id ratione voluptatibus amet expedita temporibus nulla tenetur vel obcaecati iure.
+        © 2024 MedGenie.ai. All rights reserved. Designed and developed with care by Alex, Maria, Sana & Siddhant. 
         </p>
-
-        <div className='follow-us'>
-          <h6 className='follow-title'>Follow us</h6>
-          <div className='social-icons'>
-            <AiFillFacebook className='icon' />
-            <AiFillInstagram className='icon' />
-            <FaWhatsappSquare className='icon' />
-          </div>
-        </div>
       </div>
 
       <div className='contact-form'>
