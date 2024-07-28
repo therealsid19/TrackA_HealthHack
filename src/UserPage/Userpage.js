@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from './NavBar';
-import ChatBot from './ChatBot';
+import ChatBot from './Chatbot/ChatBot';
 import Map from './Map';
 import MyCalendar from './Calendar'; // Ensure MyCalendar.js is correctly imported
 import MedicineSchedule from './MedicineSchedule'; // Ensure MedicineSchedule.js is correctly imported
