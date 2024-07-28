@@ -55,7 +55,8 @@ const Hero = () => {
             <p className='text-center'>To join our waitlist enter your email here</p>
           </div>
           <form id="waitlistForm" 
-            className="py-4 p-6 bg-gradient-to-r from-blue-500 to-violet-900 bg-opacity-70 rounded-lg shadow-lg" 
+            className="py-4 p-6 rounded-lg shadow-lg"
+            style={{ background: 'linear-gradient(90deg, rgba(29, 78, 216, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%)' }}
             onSubmit={handleSubmit}>
             <label htmlFor="email" className="pr-3 text-neutral-200">Email:</label>
             <input
