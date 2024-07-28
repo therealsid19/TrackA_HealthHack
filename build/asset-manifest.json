@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.111bdfb6.css",
+    "main.js": "/static/js/main.08113f05.js",
+    "static/media/doctorSmile.jpg": "/static/media/doctorSmile.b9113313a583d31d6a6a.jpg",
+    "static/media/HeroVid.mp4": "/static/media/HeroVid.d4e8e259634b11a6f0db.mp4",
+    "static/media/doctor.png": "/static/media/doctor.b5a25000dd7432720fd0.png",
+    "index.html": "/index.html",
+    "main.111bdfb6.css.map": "/static/css/main.111bdfb6.css.map",
+    "main.08113f05.js.map": "/static/js/main.08113f05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.111bdfb6.css",
+    "static/js/main.08113f05.js"
+  ]
+}
