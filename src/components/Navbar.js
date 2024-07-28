@@ -18,8 +18,7 @@ const Navbar = ({ onLoginClick }) => { // Receive the onLoginClick prop
   const navList = [
     { id: 1, page: 'Home' },
     { id: 2, page: 'About' },
-    { id: 3, page: 'Testimonials' },
-    { id: 4, page: 'Contact' },
+    { id: 3, page: 'Contact' },
   ];
 
   const [search, setSearch] = useState('');
@@ -27,7 +26,7 @@ const Navbar = ({ onLoginClick }) => { // Receive the onLoginClick prop
   return (
     <div className='navbar-container'>
       <div>
-        <h1 className={menu ? 'hidden' : 'logo'}>Beyond Care</h1>
+        <h1 className={menu ? 'hidden' : 'logo'}>MedGenie.ai</h1>
       </div>
 
       <ul className='nav-list'>
@@ -51,7 +50,7 @@ const Navbar = ({ onLoginClick }) => { // Receive the onLoginClick prop
 
       <div className={menu ? 'menu-open' : 'menu-closed'}>
         <ul>
-          <h1 className='logo'>Beyond Care</h1>
+          <h1 className='logo'>MedGenie.ai</h1>
           {navList.map((item) => (
             <li key={item.id}>
               <Link to={item.page} smooth={true} duration={500}>{item.page}</Link>
