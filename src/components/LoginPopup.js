@@ -1,12 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
-const LoginPopup = ({ onClose }) => {
+const LoginPopup = ({ onClose, onLoginSuccess }) => {
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // Redirect to user page on successful login
-    navigate('/user');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    onLoginSuccess(); // Close the popup
+    navigate('/user'); // Navigate to the user page
   };
 
   return (
@@ -14,7 +15,7 @@ const LoginPopup = ({ onClose }) => {
       <div className='login-popup'>
         <button className='login-popup-close' onClick={onClose}>×</button>
         <h2 className='login-heading'>Login</h2>
-        <form className='login-form' onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+        <form className='login-form' onSubmit={handleLogin}>
           <input type='text' placeholder='Username' required />
           <input type='password' placeholder='Password' required />
           <button type='submit' className='login-button'>Login</button>

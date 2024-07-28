@@ -1,0 +1,32 @@
+.navbar {
+    background-color: black;
+    padding: 1rem;
+    display: flex;
+    justify-content: center; /* Center the navbar items */
+  }
+  
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure the navbar links take full width */
+    max-width: 800px; /* Optional: set a max-width for better control */
+  }
+  
+  .navbar-links li {
+    display: inline;
+  }
+  
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar-links a:hover {
+    text-decoration: underline;
+    color: #f0ad4e;
+  }
+  

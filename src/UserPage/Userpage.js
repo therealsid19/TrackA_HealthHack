@@ -1,22 +1,34 @@
-import React from 'react';
-import NavBar from './NavBar'; // Make sure NavBar.js is in the same folder
-import ChatBot from './ChatBot'; // Make sure ChatBot.js is in the same folder
-import Map from './Map'; // Make sure Map.js is in the same folder
-import Calendar from './Calendar'; // Make sure Calendar.js is in the same folder
-import './UserPage.css'; // Import CSS
+import React, { useState } from 'react';
+import NavBar from './NavBar';
+import ChatBot from './ChatBot';
+import Map from './Map';
+import MyCalendar from './Calendar'; // Ensure MyCalendar.js is correctly imported
+import MedicineSchedule from './MedicineSchedule'; // Ensure MedicineSchedule.js is correctly imported
+import './UserPage.css';
+import UserProfile from './UserProfile';
 
 const UserPage = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <div className='user-page'>
+        <div className='nav'>
       <NavBar />
+      </div>
       <div className='user-page-content'>
+        <div className='pfp'>
+        <UserProfile />
+        </div>
         <div className='map-container'>
+            <h1> Nearest Clinic </h1>
           <Map />
         </div>
-        <div className='calendar-container'>
-          <Calendar />
+        <div className = 'reminder' style={{ display: 'flex', alignItems: 'center' }}>
+          <MyCalendar onChange={setSelectedDate} value={selectedDate} /> <MedicineSchedule date={selectedDate} />
         </div>
-        <ChatBot />
+        <div className='chatbot-container-1'>
+          <ChatBot />
+        </div>
       </div>
     </div>
   );
