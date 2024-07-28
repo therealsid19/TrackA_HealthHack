@@ -20,7 +20,7 @@ const UserPage = () => {
         <UserProfile />
         </div>
         <div className='map-container'>
-            <h1> Nearest Clinic </h1>
+            <h1 className='clinic-title'> Nearest Clinic </h1>
           <Map />
         </div>
         <div className = 'reminder' style={{ display: 'flex', alignItems: 'center' }}>

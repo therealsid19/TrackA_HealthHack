@@ -4,19 +4,25 @@ const Map = () => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    if (window.google && window.google.maps) {
-      const map = new window.google.maps.Map(mapRef.current, {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-      });
+    const loadMap = () => {
+      if (window.google && window.google.maps) {
+        const map = new window.google.maps.Map(mapRef.current, {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
 
-      // Add a marker
-      new window.google.maps.Marker({
-        position: { lat: -34.397, lng: 150.644 },
-        map,
-        title: 'Hello World!',
-      });
-    }
+        // Add a marker
+        new window.google.maps.Marker({
+          position: { lat: -34.397, lng: 150.644 },
+          map,
+          title: 'Hello World!',
+        });
+      } else {
+        console.error('Google Maps JavaScript API not loaded.');
+      }
+    };
+
+    loadMap();
   }, []);
 
   return (
