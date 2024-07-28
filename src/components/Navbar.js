@@ -32,7 +32,7 @@ const Navbar = ({ onLoginClick }) => { // Receive the onLoginClick prop
     >
       <div className='relative flex items-center justify-between h-16'>
         <div className='flex-shrink-0'>
-          <h1 className='logo'>Beyond Care</h1>
+          <h1 className='logo'>MedGenie.ai</h1>
         </div>
         <div className={`absolute left-1/2 transform -translate-x-1/2 ${menu ? 'hidden' : 'hidden md:block'}`}>
           <ul className='flex space-x-4'>
